@@ -9,29 +9,17 @@
 	<link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <div class="dataSet">
-        <form name="visitCard" metod="POST" action="">
-            <label>
-                firstname
-                <input type="text" name="f-name">
-            </label><br>
-            <label>
-                lastname
-                <input type="text" name="l-name">
-            </label><br>
-            <label>
-                midlname
-                <input type="text" name="m-name">
-            </label>
-            <label>
-                Photo
-                <input type="file" name="file">
-            </label>
-            <button name="submit" type="submit">ok</button>
-        </form>
-    </div>
+    <form class="pult-buttons">
+        <button type="button" class="bright-up">Яркость +</button>
+        <button type="button" class="bright-down">Яркость -</button>
+        <button type="button" class="temperature-up">Цветовая температура +</button>
+        <button type="button" class="temperature-down">Цветовая температура -</button><br>
+        <input type="hidden" name="hidden" value="50">
+        
+    </form>
 
-    <div class="res"></div>
+    <div class="container">50%</div>
+    <div class="container-temperature">300°</div>
     
     <script src="js/main.js"></script>
 </body>

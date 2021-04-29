@@ -1,38 +1,41 @@
-const form = document.forms.visitCard;
-const res = document.querySelector('.res')
+//buisness-logic
 
-form.addEventListener ('submit', (ev) => {
-    ev.preventDefault();
+    const btnControllerForm = document.querySelector('.pult-buttons');
+    const brightUp = btnControllerForm.querySelector('.bright-up');
+    const brightDown = btnControllerForm.querySelector('.bright-down');
+    const temperatureUp = btnControllerForm.querySelector('.temperature-up');
+    const temperatureDown = btnControllerForm.querySelector('.temperature-down');
+    const containerEl = document.querySelector('.container');
+    const containerTemp = document.querySelector('.container-temperature');
+    let standartBright = 50;
+    let standartTemperature = 300;
 
-    const formData = new FormData (ev.target);
-    const fName = formData.get('f-name');
-    const lName = formData.get('l-name');
-    const mName = formData.get('m-name');
-    const file = formData.get('file');
 
+//view    
+    brightUp.addEventListener('click', (ev) => {
+        ev.preventDefault();
 
-    const html = `
-        <div>
-            <div>Firstname: ${fName}</div>
-            <div>Lastmane: ${lName}</div>
-            <div>Midlname: ${mName}</div>
-            <div><img src=""></div>
-        </div>
-    `;
-    
+        const bright = standartBright++;
+        containerEl.innerHTML = bright + '%';
+    });
 
-    res.insertAdjacentHTML('afterBegin', html);
-    const el = res.querySelector(':last-child');
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-        const {result} = ev.target;
-        el.querySelector('img').src = result;
-        
-    };
+    brightDown.addEventListener('click', (ev) => {
+        ev.preventDefault();
 
-    reader.readAsDataURL(file);
+        const bright = standartBright--;
+        containerEl.innerHTML = bright + '%'
+    });
 
-    document.forms['visitCard'].reset();
-    
+    temperatureUp.addEventListener('click', (ev) => {
+        ev.preventDefault();
 
-});
+        const temperature =  standartTemperature++;
+        containerTemp.innerHTML = temperature + '°';
+    });
+
+    temperatureDown.addEventListener('click', (ev) => {
+        ev.preventDefault();
+
+        const temperature = standartTemperature--;
+        containerTemp.innerHTML = temperature + '°';
+    });
